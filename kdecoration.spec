@@ -5,7 +5,7 @@
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	5.2.95
+Version:	5.3.0
 Release:	1
 License:	LGPL
 Group:		System/Libraries
@@ -46,10 +46,10 @@ Development files for %{name}.
 %setup -q
 
 %build
-%cmake -G Ninja \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
-ninja
+%cmake_kde5
+
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja -C build install
+%ninja_install -C build
 
