@@ -44,10 +44,9 @@ Development files for %{name}.
 
 %prep
 %setup -q
-
-%build
 %cmake_kde5
 
+%build
 %ninja -C build
 
 %install
