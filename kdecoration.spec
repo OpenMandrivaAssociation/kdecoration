@@ -10,13 +10,11 @@ Release:	1
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake
-BuildRequires:	ninja
 
 %libpackage kdecorations2 %{major}
 
