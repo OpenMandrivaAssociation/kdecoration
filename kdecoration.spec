@@ -1,11 +1,12 @@
 %define major 5
+%define pmajor 6
 %define libname %{mklibname kdecorations2 %{major}}
 %define devname %{mklibname kdecorations2 -d}
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	5.12.3
+Version:	5.12.90
 Release:	1
 License:	LGPL
 Group:		System/Libraries
@@ -16,9 +17,32 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	cmake(ECM)
 
-%libpackage kdecorations2 %{major}
+%define libname %{mklibname kdecorations2 %{major}}
 
-%libpackage kdecorations2private %{major}
+%package -n %{libname}
+Summary: KDE Decorations Library
+Group: System/Libraries
+
+%description -n %{libname}
+KDE Decorations library
+
+%files -n %{libname} -f %{name}.lang
+%{_libdir}/libkdecorations2.so.%{major}*
+
+%define oldplibname %{mklibname kdecorations2private 5}
+%define plibname %{mklibname kdecorations2private %{pmajor}}
+
+%package -n %{plibname}
+Summary: KDE Decorations Library, private parts
+Group: System/Libraries
+%rename %{oldplibname}
+
+%description -n %{plibname}
+KDE Decorations library, private parts
+
+%files -n %{plibname}
+%{_libdir}/libkdecorations2private.so.%{pmajor}*
+%{_libdir}/libkdecorations2private.so.5*
 
 %description
 Library for dealing with window decorations.
@@ -49,4 +73,4 @@ Development files for %{name}.
 
 %install
 %ninja_install -C build
-
+%find_lang %{name}
