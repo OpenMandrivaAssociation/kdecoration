@@ -15,6 +15,7 @@ Source0:	http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
+BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(ECM)
 
 %define libname %{mklibname kdecorations2 %{major}}
