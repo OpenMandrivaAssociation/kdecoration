@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   kdecoration-5.12.3.tar.xz: 10304f25d7455d52054d8b2d68708f11fb544892
+sources:
+  kdecoration-5.12.6.tar.xz: e05fe8d430a5d30514c9a3001e9b63df02d992e3
