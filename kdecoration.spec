@@ -1,13 +1,13 @@
 %define major 5
-%define pmajor 6
+%define pmajor 7
 %define libname %{mklibname kdecorations2 %{major}}
 %define devname %{mklibname kdecorations2 -d}
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	5.17.5
-Release:	2
+Version:	5.18.0
+Release:	1
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
