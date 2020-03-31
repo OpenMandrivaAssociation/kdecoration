@@ -6,12 +6,12 @@
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	5.18.3
-Release:	2
+Version:	5.18.4.1
+Release:	1
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
-Source0:	http://download.kde.org/%{stable}/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
@@ -66,7 +66,7 @@ Development files for %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 %cmake_kde5
 
 %build
