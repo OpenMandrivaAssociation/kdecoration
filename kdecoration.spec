@@ -6,7 +6,7 @@
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	5.20.5
+Version:	5.21.0
 Release:	1
 License:	LGPL
 Group:		System/Libraries
@@ -17,6 +17,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(ECM)
+Obsoletes:	%mklibname kdecorations2private 7
 
 %define libname %{mklibname kdecorations2 %{major}}
 
@@ -29,21 +30,7 @@ KDE Decorations library
 
 %files -n %{libname} -f %{name}.lang
 %{_libdir}/libkdecorations2.so.%{major}*
-
-%define oldplibname %{mklibname kdecorations2private 5}
-%define plibname %{mklibname kdecorations2private %{pmajor}}
-
-%package -n %{plibname}
-Summary: KDE Decorations Library, private parts
-Group: System/Libraries
-%rename %{oldplibname}
-
-%description -n %{plibname}
-KDE Decorations library, private parts
-
-%files -n %{plibname}
-%{_libdir}/libkdecorations2private.so.%{pmajor}*
-%{_libdir}/libkdecorations2private.so.5*
+%{_libdir}/libkdecorations2private.so.*
 
 %description
 Library for dealing with window decorations.
@@ -52,7 +39,6 @@ Library for dealing with window decorations.
 Summary:	Development files for %{name}
 Group:		Development/KDE and Qt
 Requires:	%{libname} = %{EVRD}
-Requires:	%{mklibname kdecorations2private %{major}} = %{EVRD}
 
 %description -n %{devname}
 Development files for %{name}.
