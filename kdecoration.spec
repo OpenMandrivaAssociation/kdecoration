@@ -1,13 +1,12 @@
 %define major 5
-%define pmajor 7
 %define libname %{mklibname kdecorations2 %{major}}
 %define devname %{mklibname kdecorations2 -d}
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
 Version:	5.21.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
@@ -17,13 +16,11 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(ECM)
-Obsoletes:	%mklibname kdecorations2private 7
-
-%define libname %{mklibname kdecorations2 %{major}}
 
 %package -n %{libname}
-Summary: KDE Decorations Library
-Group: System/Libraries
+Summary:	KDE Decorations Library
+Group:	System/Libraries
+Obsoletes:	%{mklibname kdecorations2private 7} < %{EVRD}
 
 %description -n %{libname}
 KDE Decorations library
