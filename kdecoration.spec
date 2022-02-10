@@ -15,6 +15,7 @@ BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(ECM)
 
 %package -n %{libname}
