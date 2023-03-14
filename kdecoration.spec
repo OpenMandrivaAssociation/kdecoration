@@ -5,7 +5,7 @@
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	5.27.2
+Version:	5.27.3
 Release:	1
 License:	LGPL
 Group:		System/Libraries
