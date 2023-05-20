@@ -1,5 +1,5 @@
-%define major 5
-%define libname %{mklibname kdecorations2 %{major}}
+%define major 6
+%define libname %{mklibname kdecorations2}
 %define devname %{mklibname kdecorations2 -d}
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 %define git 20230520
@@ -16,6 +16,8 @@ Source0:	https://invent.kde.org/plasma/kdecoration/-/archive/master/kdecoration-
 %else
 Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 %endif
+# Don't fight with Plasma 5 over libkdecorations2.so.5
+Patch0:		kdecoration-bump-soname.patch
 BuildRequires:	cmake(Qt6)
 BuildRequires:	pkgconfig(Qt6Core)
 BuildRequires:	pkgconfig(Qt6Gui)
@@ -33,7 +35,7 @@ Obsoletes:	%{mklibname kdecorations2private 7} < %{EVRD}
 KDE Decorations library
 
 %files -n %{libname} -f kdecoration.lang
-%{_libdir}/libkdecorations2.so.%{major}*
+%{_libdir}/libkdecorations2.so.*
 %{_libdir}/libkdecorations2private.so.*
 
 %description

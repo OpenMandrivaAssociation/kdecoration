@@ -1,0 +1,23 @@
+diff -up kdecoration-master/CMakeLists.txt.omv~ kdecoration-master/CMakeLists.txt
+--- kdecoration-master/CMakeLists.txt.omv~	2023-05-20 23:05:57.209630322 +0200
++++ kdecoration-master/CMakeLists.txt	2023-05-20 23:06:07.566783550 +0200
+@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
+ 
+ project(decoration-api)
+ set(PROJECT_VERSION "5.27.80")
++set(PROJECT_VERSION_MAJOR 6)
+ 
+ set(QT_MIN_VERSION "6.4.0")
+ set(KF6_MIN_VERSION "5.240.0")
+diff -up kdecoration-master/CMakeLists.txt.omv~ kdecoration-master/CMakeLists.txt
+--- kdecoration-master/CMakeLists.txt.omv~	2023-05-20 23:07:38.223096432 +0200
++++ kdecoration-master/CMakeLists.txt	2023-05-20 23:07:49.487256259 +0200
+@@ -30,7 +30,7 @@ include(KDEGitCommitHooks)
+ ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX KDECORATION2
+                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kdecoration2_version.h"
+                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KDecoration2ConfigVersion.cmake"
+-                        SOVERSION 5)
++                        SOVERSION 6)
+ 
+ #dependencies
+ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
