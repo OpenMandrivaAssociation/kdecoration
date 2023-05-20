@@ -7,7 +7,7 @@
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
 Version:	5.240.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
@@ -29,7 +29,6 @@ BuildRequires:	cmake(ECM)
 %package -n %{libname}
 Summary:	KDE Decorations Library
 Group:	System/Libraries
-Obsoletes:	%{mklibname kdecorations2private 7} < %{EVRD}
 
 %description -n %{libname}
 KDE Decorations library
