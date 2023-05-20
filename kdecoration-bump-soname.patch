@@ -21,3 +21,15 @@ diff -up kdecoration-master/CMakeLists.txt.omv~ kdecoration-master/CMakeLists.tx
  
  #dependencies
  find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+diff -up kdecoration-master/src/private/CMakeLists.txt.omv~ kdecoration-master/src/private/CMakeLists.txt
+--- kdecoration-master/src/private/CMakeLists.txt.omv~	2023-05-21 00:48:37.719751404 +0200
++++ kdecoration-master/src/private/CMakeLists.txt	2023-05-21 00:48:40.917784107 +0200
+@@ -28,7 +28,7 @@ target_link_libraries(kdecorations2priva
+ target_include_directories(kdecorations2private INTERFACE "$<INSTALL_INTERFACE:${KDECORATION2_INCLUDEDIR}>" )
+ 
+ set_target_properties(kdecorations2private PROPERTIES VERSION   ${KDECORATION2_VERSION}
+-                                                      SOVERSION 10
++                                                      SOVERSION 11
+                                                       EXPORT_NAME KDecoration2Private
+ )
+ 
