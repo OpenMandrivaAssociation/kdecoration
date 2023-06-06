@@ -1,17 +1,6 @@
-diff -up kdecoration-master/CMakeLists.txt.omv~ kdecoration-master/CMakeLists.txt
---- kdecoration-master/CMakeLists.txt.omv~	2023-05-20 23:05:57.209630322 +0200
-+++ kdecoration-master/CMakeLists.txt	2023-05-20 23:06:07.566783550 +0200
-@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
- 
- project(decoration-api)
- set(PROJECT_VERSION "5.27.80")
-+set(PROJECT_VERSION_MAJOR 6)
- 
- set(QT_MIN_VERSION "6.4.0")
- set(KF6_MIN_VERSION "5.240.0")
-diff -up kdecoration-master/CMakeLists.txt.omv~ kdecoration-master/CMakeLists.txt
---- kdecoration-master/CMakeLists.txt.omv~	2023-05-20 23:07:38.223096432 +0200
-+++ kdecoration-master/CMakeLists.txt	2023-05-20 23:07:49.487256259 +0200
+diff -up kdecoration-master/CMakeLists.txt.1~ kdecoration-master/CMakeLists.txt
+--- kdecoration-master/CMakeLists.txt.1~	2023-06-06 12:58:14.712366572 +0200
++++ kdecoration-master/CMakeLists.txt	2023-06-06 12:58:59.367649829 +0200
 @@ -30,7 +30,7 @@ include(KDEGitCommitHooks)
  ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX KDECORATION2
                          VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kdecoration2_version.h"
@@ -20,10 +9,10 @@ diff -up kdecoration-master/CMakeLists.txt.omv~ kdecoration-master/CMakeLists.tx
 +                        SOVERSION 6)
  
  #dependencies
- find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-diff -up kdecoration-master/src/private/CMakeLists.txt.omv~ kdecoration-master/src/private/CMakeLists.txt
---- kdecoration-master/src/private/CMakeLists.txt.omv~	2023-05-21 00:48:37.719751404 +0200
-+++ kdecoration-master/src/private/CMakeLists.txt	2023-05-21 00:48:40.917784107 +0200
+ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+diff -up kdecoration-master/src/private/CMakeLists.txt.1~ kdecoration-master/src/private/CMakeLists.txt
+--- kdecoration-master/src/private/CMakeLists.txt.1~	2023-06-02 13:34:04.000000000 +0200
++++ kdecoration-master/src/private/CMakeLists.txt	2023-06-06 12:58:14.712366572 +0200
 @@ -28,7 +28,7 @@ target_link_libraries(kdecorations2priva
  target_include_directories(kdecorations2private INTERFACE "$<INSTALL_INTERFACE:${KDECORATION2_INCLUDEDIR}>" )
  
