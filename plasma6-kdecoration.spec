@@ -7,7 +7,7 @@
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
 Version:	5.240.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
@@ -69,4 +69,10 @@ Development files for %{name}.
 
 %install
 %ninja_install -C build
+
+# FIXME we temporarily remove the Chinese translation here because
+# it (and, strangely, none of the other translations) conflicts with
+# the Plasma 5 version
+rm -rf %{buildroot}%{_datadir}/locale/zh_CN
+
 %find_lang kdecoration
