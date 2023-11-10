@@ -1,12 +1,12 @@
 %define major 6
 %define libname %{mklibname kdecorations2}
 %define devname %{mklibname kdecorations2 -d}
-%define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
-%define git 20231103
+%define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
+#define git 20231103
 
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
-Version:	5.240.0
+Version:	5.27.80
 Release:	%{?git:0.%{git}.}1
 License:	LGPL
 Group:		System/Libraries
@@ -14,7 +14,7 @@ Url:		http://kde.org/
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/kdecoration/-/archive/master/kdecoration-master.tar.bz2#/kdecoration-%{git}.tar.bz2
 %else
-Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/kdecoration-%{version}.tar.xz
 %endif
 BuildRequires:	cmake(Qt6)
 BuildRequires:	pkgconfig(Qt6Core)
