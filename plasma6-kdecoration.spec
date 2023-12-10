@@ -1,13 +1,13 @@
 %define major 6
-%define libname %{mklibname kdecorations2}
-%define devname %{mklibname kdecorations2 -d}
+%define libname %{mklibname kdecorations2_6}
+%define devname %{mklibname kdecorations2_6 -d}
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 #define git 20231103
 
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
 Version:	5.90.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
