@@ -2,17 +2,19 @@
 %define libname %{mklibname kdecorations2_6}
 %define devname %{mklibname kdecorations2_6 -d}
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
-#define git 20231103
+%define git 20240217
+%define gitbranch Plasma/6.0
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
-Version:	5.93.0
+Version:	5.94.0
 Release:	%{?git:0.%{git}.}1
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
 %if 0%{?git:1}
-Source0:	https://invent.kde.org/plasma/kdecoration/-/archive/master/kdecoration-master.tar.bz2#/kdecoration-%{git}.tar.bz2
+Source0:	https://invent.kde.org/plasma/kdecoration/-/archive/%{gitbranch}/kdecoration-%{gitbranchd}.tar.bz2#/kdecoration-%{git}.tar.bz2
 %else
 Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/kdecoration-%{version}.tar.xz
 %endif
@@ -55,7 +57,7 @@ Development files for %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n kdecoration-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n kdecoration-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
