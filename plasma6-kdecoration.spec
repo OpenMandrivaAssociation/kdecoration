@@ -8,7 +8,7 @@
 
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
-Version:	6.0.4
+Version:	6.0.5
 Release:	%{?git:0.%{git}.}1
 License:	LGPL
 Group:		System/Libraries
