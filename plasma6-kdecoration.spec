@@ -12,7 +12,7 @@ Version:	6.2.1
 Release:	%{?git:0.%{git}.}1
 License:	LGPL
 Group:		System/Libraries
-Url:		http://kde.org/
+Url:		https://kde.org/
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/kdecoration/-/archive/%{gitbranch}/kdecoration-%{gitbranchd}.tar.bz2#/kdecoration-%{git}.tar.bz2
 %else
