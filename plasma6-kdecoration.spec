@@ -1,6 +1,8 @@
 %define major 6
-%define libname %{mklibname kdecorations2_6}
-%define devname %{mklibname kdecorations2_6 -d}
+%define libname %{mklibname kdecorations3}
+%define devname %{mklibname kdecorations3 -d}
+%define oldlibname %{mklibname kdecorations2_6}
+%define olddevname %{mklibname kdecorations2_6 -d}
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 #define git 20240222
 %define gitbranch Plasma/6.0
@@ -8,7 +10,7 @@
 
 Summary:	Library for handling window decorations
 Name:		plasma6-kdecoration
-Version:	6.2.5
+Version:	6.3.0
 Release:	%{?git:0.%{git}.}1
 License:	LGPL
 Group:		System/Libraries
@@ -27,6 +29,7 @@ BuildRequires:	cmake(KF6CoreAddons)
 BuildRequires:	cmake(ECM)
 
 %package -n %{libname}
+%rename %{oldlibname}
 Summary:	KDE Decorations Library
 Group:	System/Libraries
 
@@ -34,8 +37,8 @@ Group:	System/Libraries
 KDE Decorations library
 
 %files -n %{libname} -f kdecoration.lang
-%{_libdir}/libkdecorations2.so.*
-%{_libdir}/libkdecorations2private.so.*
+%{_libdir}/libkdecorations3.so.*
+%{_libdir}/libkdecorations3private.so.*
 
 %description
 Library for dealing with window decorations.
@@ -44,15 +47,16 @@ Library for dealing with window decorations.
 Summary:	Development files for %{name}
 Group:		Development/KDE and Qt
 Requires:	%{libname} = %{EVRD}
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files for %{name}.
 
 %files -n %{devname}
-%{_includedir}/KF6/kdecoration2_version.h
-%{_includedir}/KDecoration2
+%{_includedir}/KF6/kdecoration3_version.h
+%{_includedir}/KDecoration3
 %{_libdir}/*.so
-%{_libdir}/cmake/KDecoration2
+%{_libdir}/cmake/KDecoration3
 
 #----------------------------------------------------------------------------
 
