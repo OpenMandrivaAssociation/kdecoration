@@ -9,7 +9,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Summary:	Library for handling window decorations
-Name:		plasma6-kdecoration
+Name:		kdecoration
 Version:	6.3.4
 Release:	%{?git:0.%{git}.}1
 License:	LGPL
@@ -27,6 +27,11 @@ BuildRequires:	pkgconfig(Qt6Test)
 BuildRequires:	cmake(KF6I18n)
 BuildRequires:	cmake(KF6CoreAddons)
 BuildRequires:	cmake(ECM)
+BuildSystem:	cmake
+BuildOption:	-DBUILD_QCH:BOOL=ON
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+# Renamed after 6.0 2025-05-01
+%rename plasma6-kdecoration
 
 %package -n %{libname}
 %rename %{oldlibname}
@@ -36,7 +41,7 @@ Group:	System/Libraries
 %description -n %{libname}
 KDE Decorations library
 
-%files -n %{libname} -f kdecoration.lang
+%files -n %{libname} -f %{name}.lang
 %{_libdir}/libkdecorations3.so.*
 %{_libdir}/libkdecorations3private.so.*
 
@@ -57,26 +62,3 @@ Development files for %{name}.
 %{_includedir}/KDecoration3
 %{_libdir}/*.so
 %{_libdir}/cmake/KDecoration3
-
-#----------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n kdecoration-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-
-# FIXME we temporarily remove the Chinese translation here because
-# it (and, strangely, none of the other translations) conflicts with
-# the Plasma 5 version
-rm -rf %{buildroot}%{_datadir}/locale/zh_CN
-
-%find_lang kdecoration
