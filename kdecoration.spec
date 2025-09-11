@@ -10,8 +10,8 @@
 
 Summary:	Library for handling window decorations
 Name:		kdecoration
-Version:	6.4.4
-Release:	%{?git:0.%{git}.}2
+Version:	6.4.5
+Release:	%{?git:0.%{git}.}1
 License:	LGPL
 Group:		System/Libraries
 Url:		https://kde.org/
